@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/12 18:49:10 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:53:24 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	ex_n(void)
 
 static void	ex_r(void)
 {
-	system("cc .menu/* -o .menu_exe && ./.menu_exe");
+    system("cc .menu/* -o .menu_exe_temp && mv .menu_exe_temp .menu_exe && ./.menu_exe");
 	exit(0);
 }
 
