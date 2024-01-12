@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/12 18:42:21 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:49:10 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ex_5(void)
 
 static void	ex_g(void)
 {
-    char    g1[] = "git add ../.";
+    char    g1[] = "git add ../*";
     char    g2[] = "git commit -m \"menu_commit\"";
     char    g3[] = "git push";
     char    g4[] = "git log";
