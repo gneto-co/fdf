@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/12 18:53:24 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/13 23:22:52 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	ex_2(void)
 {
 	char	*str;
 
-	str = ft_multi_strjoin("./%s", g_name);
+	str = ft_multi_strjoin("valgrind ./%s", g_name);
 	system(str);
 	free(str);
 }
@@ -55,13 +55,15 @@ static void	ex_5(void)
 
 static void	ex_g(void)
 {
-    char    g1[] = "git add ../*";
-    char    g2[] = "git commit -m \"menu_commit\"";
-    char    g3[] = "git push";
-    char    g4[] = "git log";
     char    *order;
     
-	order = ft_multi_strjoin("%s && %s && %s && %s",g1, g2, g3, g4);
+	order = ft_multi_strjoin(
+		"%s && %s && %s && %s",
+		"git add ../*", 
+		"git commit -m \"menu_commit\"", 
+		"git push", 
+		"git log"
+		);
     system(order);
 	free(order);
 }
