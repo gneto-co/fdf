@@ -6,13 +6,14 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:30:24 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/14 00:29:39 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:20:36 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -97,6 +98,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strdup(const char *src);
 char				**ft_split(char const *str, char c);
+void				ft_free_split(char **lines, int i);
 char				*ft_multi_strjoin(const char *source, ...);
 char				*ft_str_char_join(char *str, char c);
 

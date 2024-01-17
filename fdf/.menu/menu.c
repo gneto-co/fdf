@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/13 23:31:16 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:18:56 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ static void	ex_g(void)
 {
     char    *order;
     
-	order = ft_multi_strjoin(
+	order = ft_multi_strjoin( 
 		"%s && %s && %s && %s",
 		"git add ../*", 
 		"git commit -m \"menu_commit\"", 
-		"git push", 
+		"git push",
 		"git log"
 		);
     system(order);
@@ -96,18 +96,21 @@ static char	main_menu()
 	
 	fflush(stdout);
 	printf("\033]0;Test Menu\007");
-	printf("\nExecute:\n"
-			"\n\033[93m 1\x1b[0m ./fdf"
-			"\n\033[93m 2\x1b[0m valgrind ./fdf"
-			"\n\033[32m 3\x1b[0m make re"
-			"\n\033[32m 4\x1b[0m make fclean"
-			"\n ---------"
-			"\n\033[34m g\x1b[0m git commit"
-			"\n\033[35m n\x1b[0m norminette"
-			"\n\033[36m c\x1b[0m clear screen"
-			"\n\x1b[31m r\x1b[0m to reload"
-			"\n\x1b[31m q\x1b[0m to quit"
-			"\n\n> ");
+	printf
+	(
+		"\nExecute:\n"
+		"\n\033[93m 1\x1b[0m ./fdf"
+		"\n\033[93m 2\x1b[0m valgrind ./fdf"
+		"\n\033[32m 3\x1b[0m make re"
+		"\n\033[32m 4\x1b[0m make fclean"
+		"\n ---------"
+		"\n\033[34m g\x1b[0m git commit & push"
+		"\n\033[35m n\x1b[0m norminette"
+		"\n\033[36m c\x1b[0m clear screen"
+		"\n\x1b[31m r\x1b[0m to reload"
+		"\n\x1b[31m q\x1b[0m to quit"
+		"\n\n> "
+	);
 	scanf(" %c", &c);
 	return (c);
 }

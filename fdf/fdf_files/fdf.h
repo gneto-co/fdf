@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/01/12 16:03:13 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:09:36 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct point_coordinate
 	int						x;
 	int						y;
 	int						z;
-	struct point_coordinate	*next;
 }							t_point_coordinate;
+
+void	fdf(char *file);
 
 #endif

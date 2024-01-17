@@ -6,23 +6,25 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/12 16:16:25 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/01/15 09:32:24 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = fdf.a
 
 PROJECT_SOURCES = \
-$(NAME).c \
+fdf.c \
 
 SOURCES = $(PROJECT_SOURCES)
 	
 OBJECTS = $(SOURCES:.c=.o)
 
+
+
 all: $(NAME)
 
 $(NAME): $(OBJECTS) 
-	@ar rcs $(NAME).a $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 clean:
 	@rm -f $(OBJECTS)
