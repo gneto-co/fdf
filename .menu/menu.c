@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 22:50:16 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:52:16 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static void	ex_g(void)
 			"\n\033[34m 1\x1b[0m add & commit"
 			"\n\033[34m 2\x1b[0m push"
 			"\n\033[34m 3\x1b[0m pull"
+			"\n\033[34m 4\x1b[0m log"
 			"\n ---------"
 			"\n\033[36m c\x1b[0m clear screen"
 			"\n\033[31m q\x1b[0m to quit"
@@ -97,6 +98,8 @@ static void	ex_g(void)
 			system("git push && git log");
 		else if (c == '3')
 			system("git pull");
+		else if (c == '4')
+			system("git log");
 	}
 	system(g_name);
 	system("clear");
