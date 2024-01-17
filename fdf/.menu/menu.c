@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 22:26:18 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:32:26 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	ex_g(void)
     char    commit[200];
 	char	c = 0;
     
+	system("cd ..");
 	printf("\033]0;GitHub Menu\007");
 	while (c != 'q')
 	{
@@ -87,7 +88,7 @@ static void	ex_g(void)
 		{
 			printf("\nType your commit message: \n> ");
 			scanf("%200s", commit);
-			order = ft_multi_strjoin("git add ../* && git commit -m \"%s\"", commit);
+			order = ft_multi_strjoin("git add . && git commit -m \"%s\"", commit);
 			system(order);
 			free(order);
 		}
@@ -98,6 +99,7 @@ static void	ex_g(void)
 		else
 			c = '#';
 	}
+	system(g_name);
 	system("clear");
 }
 
