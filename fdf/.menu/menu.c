@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 22:20:58 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:26:18 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static void	ex_g(void)
 	while (c != 'q')
 	{
 		fflush(stdout);
-		system("clear");
 		printf
 		(
 			"\nChose your git command:\n"
@@ -79,7 +78,9 @@ static void	ex_g(void)
 			"\n\n> "
 		);
 		scanf(" %c", &c);
-		
+
+		system("clear");
+
 		if (c == 'q')
 			break;
 		else if (c == '1')
@@ -91,7 +92,7 @@ static void	ex_g(void)
 			free(order);
 		}
 		else if (c == '2')
-			system("git push .. && git log");
+			system("git push && git log");
 		else if (c == '3')
 			system("git pull");
 		else
