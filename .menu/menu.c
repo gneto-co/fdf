@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 22:53:55 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 23:01:52 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ static void	ex_5(void)
 static void	ex_g(void)
 {
     char    *order;
-    char    commit[200];
+    char    *commit = NULL;
 	char	c = 0;
+	size_t len = 0;
+	ssize_t read;
     
 	system("cd ..");
 	printf("\033]0;GitHub Menu\007");
@@ -81,6 +83,7 @@ static void	ex_g(void)
 			"\n\n> "
 		);
 		scanf(" %c", &c);
+		getchar();
 
 		system("clear");
 
@@ -89,8 +92,9 @@ static void	ex_g(void)
 		else if (c == '1')
 		{
 			printf("\nType your commit message: \n> ");
-			scanf("%200s", commit);
-			printf("%s", commit);
+			read = getline(&commit, &len, stdin);
+			if (commit[read - 1] == '\n')
+			commit[read - 1] = '\0';
 			order = ft_multi_strjoin("git add . && git commit -m \"%s\"", commit);
 			system(order);
 			free(order);
