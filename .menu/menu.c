@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 23:03:27 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 23:07:42 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ static void	ex_g(void)
 			order = ft_multi_strjoin("git add . && git commit -m \"%s\"", commit);
 			system(order);
 			free(order);
+			free(commit);
 		}
 		else if (c == '2')
 			system("git push && git log");
