@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 14:18:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:19:17 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 char		g_name[] = "fdf";
 
-#pragma region ex_
+#pragma region ex_number
 
 static void	ex_1(void)
 {
@@ -53,19 +53,51 @@ static void	ex_5(void)
 	return ;
 }
 
+#pragma endregion
+
+#pragma region ex_letter
+
 static void	ex_g(void)
 {
     char    *order;
+    char    commit[200];
+	char	c = 0;
     
-	order = ft_multi_strjoin( 
-		"%s && %s && %s && %s",
-		"git add ../*", 
-		"git commit -m \"menu_commit\"", 
-		"git push",
-		"git log"
+	printf("\033]0;GitHub Menu\007");
+	while (c != 'q')
+	{
+		fflush(stdout);
+		system("clear");
+		printf
+		(
+			"\nChose your git command:\n"
+			"\n\033[34m 1\x1b[0m add & commit"
+			"\n\033[34m 2\x1b[0m push"
+			"\n\033[34m 3\x1b[0m pull"
+			"\n ---------"
+			"\n\033[31m q\x1b[0m to quit"
+			"\n\n> "
 		);
-    system(order);
-	free(order);
+		scanf(" %c", &c);
+		
+		if (c == 'q')
+			break;
+		else if (c == '1')
+		{
+			printf("\nType your commit message: \n> ");
+			scanf("%200s", commit);
+			order = ft_multi_strjoin("git add ../* && git commit -m \"%s\"", commit);
+			system(order);
+			free(order);
+		}
+		else if (c == '2')
+			system("git push && git log");
+		else if (c == '3')
+			system("git pull");
+		else
+			c = '#';
+	}
+	system("clear");
 }
 
 static void	ex_n(void)
@@ -88,6 +120,7 @@ static void	ex_q(void)
 	system("clear");
 	exit(0);
 }
+
 #pragma endregion
 
 static char	main_menu()
@@ -104,7 +137,7 @@ static char	main_menu()
 		"\n\033[32m 3\x1b[0m make re"
 		"\n\033[32m 4\x1b[0m make fclean"
 		"\n ---------"
-		"\n\033[34m g\x1b[0m git commit & push"
+		"\n\033[34m g\x1b[0m git menu"
 		"\n\033[35m n\x1b[0m norminette"
 		"\n\033[36m c\x1b[0m clear screen"
 		"\n\x1b[31m r\x1b[0m to reload"

@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 10:09:55 by gabriel           #+#    #+#              #
-#    Updated: 2024/01/15 09:31:09 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/01/17 14:37:53 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_PATH) -I$(PROJECT_PATH) -fsanitize=addr
 all: $(NAME)
 
 $(NAME): $(MAIN) $(PROJECT) $(LIBFT)
-	clang $(CFLAGS) -o $(NAME) $(MAIN) $(PROJECT) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(MAIN) $(PROJECT) $(LIBFT)
 	@clear
 	@echo "\033[32m\n---------- $(NAME) compiled and ready! ----------\033[0m"
 

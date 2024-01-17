@@ -6,20 +6,19 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/15 09:32:24 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/01/17 15:26:01 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf.a
 
-PROJECT_SOURCES = \
-fdf.c \
+PROJECT_SOURCES = $(addsuffix .c, \
+fdf \
+)
 
 SOURCES = $(PROJECT_SOURCES)
 	
 OBJECTS = $(SOURCES:.c=.o)
-
-
 
 all: $(NAME)
 
