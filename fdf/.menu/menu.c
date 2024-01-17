@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 22:32:26 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:33:33 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static void	ex_g(void)
 			"\n\033[34m 2\x1b[0m push"
 			"\n\033[34m 3\x1b[0m pull"
 			"\n ---------"
+			"\n\033[36m c\x1b[0m clear screen"
 			"\n\033[31m q\x1b[0m to quit"
 			"\n\n> "
 		);
