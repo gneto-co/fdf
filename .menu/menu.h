@@ -18,6 +18,10 @@
 # include <stdlib.h>
 # include <time.h>
 # include <unistd.h>
+# include <fcntl.h>
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 int long	ft_strlen(const char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -26,5 +30,7 @@ char		*ft_strdup(const char *src);
 static char	*sort(char *str, char c, va_list args);
 char		*ft_multi_strjoin(const char *source, ...);
 char		*ft_itoa(int n);
+char	    *get_next_line(int fd);
+int         ft_atoi(const char *nptr);
 
 #endif

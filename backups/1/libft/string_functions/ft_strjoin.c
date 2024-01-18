@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:48:15 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/12 17:12:26 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/13 23:50:44 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	*ft_str_char_join(char *str, char c)
 {
 	int		i;
 	char	*new_str;
+
 	i = 0;
 	if (str)
 	{
@@ -56,7 +57,7 @@ char	*ft_str_char_join(char *str, char c)
 	else
 	{
 		new_str = malloc(2);
-			return (NULL);
+		return (NULL);
 	}
 	new_str[i] = c;
 	i++;

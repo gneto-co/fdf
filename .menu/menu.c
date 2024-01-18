@@ -132,10 +132,31 @@ static void	ex_q(void)
 	exit(0);
 }
 
+static void ex_b(void)
+{
+	int nb = 0;
+	int fd;
+	char *str;
+	system("mkdir backups");
+	system("ls backups > backups/.bk.txt");
+	fd = open("backups/.bk.txt", O_RDONLY);
+	while((str = get_next_line(fd)))
+	{
+		nb = ft_atoi(str);
+		free(str);
+	}
+	nb++;
+	str = ft_multi_strjoin("rsync -av --exclude=\".git\" --exclude=\".*\" --exclude=\"backups\" . ./backups/%d",nb);
+	system(str);
+	system("rm backups/.bk.txt && clear");
+	printf("\n\033[32mBackup number %d created\x1b[0m\n", nb);
+	free(str);
+}
+
 #pragma endregion
 
 static char	main_menu()
-{
+{	
 	char	c;
 	
 	fflush(stdout);
@@ -148,11 +169,12 @@ static char	main_menu()
 		"\n\033[32m 3\x1b[0m make re"
 		"\n\033[32m 4\x1b[0m make fclean"
 		"\n ---------"
-		"\n\033[34m g\x1b[0m git menu"
-		"\n\033[35m n\x1b[0m norminette"
+		"\n\033[94m g\x1b[0m git menu"
+		"\n\033[95m n\x1b[0m norminette"
+		"\n\033[91m b\x1b[0m create new backup"
 		"\n\033[36m c\x1b[0m clear screen"
-		"\n\x1b[31m r\x1b[0m to reload"
-		"\n\x1b[31m q\x1b[0m to quit"
+		"\n\033[31m r\x1b[0m to reload"
+		"\n\033[31m q\x1b[0m to quit"
 		"\n\n> "
 	);
 	scanf(" %c", &c);
@@ -173,6 +195,8 @@ static void	sort_number(char c)
 		ex_g();
 	else if (c == 'n')
 		ex_n();
+	else if (c == 'b')
+		ex_b();
 	else if (c == 'r')
 		ex_r();
 	else if (c == 'q')

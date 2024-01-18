@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gneto-co <gneto-co@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:03:51 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/02 19:33:31 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:19:57 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_count_letters_of_word(char *str, char c)
 	return (len);
 }
 
-static void	ft_line_free(char **lines, int i)
+void	ft_free_split(char **lines, int i)
 {
 	while (i >= 0)
 	{
@@ -68,7 +68,7 @@ static char	**repartir(char *str, char c, char **lines, int lineslen)
 					+ 1));
 		if (!lines[i])
 		{
-			ft_line_free(lines, i);
+			ft_free_split(lines, i);
 			return (NULL);
 		}
 		j = 0;

@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/12 15:54:00 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/01/14 00:31:29 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,12 +58,18 @@ ft_putstr.c \
 ft_putstr_newline.c \
 ft_put_unsigned_nbr.c \
 ft_putpt.c \
+$(addprefix ft_printf/, \
+ft_printf.c \
+ft_print_type.c \
+ft_print_type2.c \
+) \
 )
 
 READ_FUNCTIONS = $(addprefix read_functions/, \
 $(addprefix get_next_line/, \
 get_next_line.c \
-get_next_line_utils.c ) \
+get_next_line_utils.c \
+) \
 )
 
 STRING_FUNCTIONS = $(addprefix string_functions/, \
