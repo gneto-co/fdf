@@ -1,9 +1,9 @@
 -------------------------
--------- log 1 ---------
+-------- log 2 ---------
 -------------------------
 
  resume:
-  -menu improvement
-  -libft improvement
-  ---//---
-  next step is to start fdf read from file
+  little alterations on menu and libft
+  maps : folder addition
+  -----//-----
+  fdf > map_reader : add and finished

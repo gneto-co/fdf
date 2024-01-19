@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/17 23:07:42 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:46:33 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // cc .menu/* -o .menu_exe && ./.menu_exe
 
 char		g_name[] = "fdf";
+char		g_args[] = "maps/a.txt";
 
 #pragma region ex_number
 
@@ -25,7 +26,7 @@ static void	ex_1(void)
 	int		j;
 
 	j = 0;
-	str = ft_multi_strjoin(" ./%s", g_name);
+	str = ft_multi_strjoin(" ./%s %s", g_name, g_args);
 	system(str);
 	free(str);
 }
@@ -33,7 +34,7 @@ static void	ex_2(void)
 {
 	char	*str;
 
-	str = ft_multi_strjoin("valgrind ./%s", g_name);
+	str = ft_multi_strjoin("valgrind ./%s %s", g_name, g_args);
 	system(str);
 	free(str);
 }

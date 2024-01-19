@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:03:51 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/15 10:19:57 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:39:18 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,6 @@ static int	ft_count_letters_of_word(char *str, char c)
 	return (len);
 }
 
-void	ft_free_split(char **lines, int i)
-{
-	while (i >= 0)
-	{
-		free(lines[i]);
-		i--;
-	}
-	free(lines);
-}
-
 static char	**repartir(char *str, char c, char **lines, int lineslen)
 {
 	int	i;
@@ -68,7 +58,7 @@ static char	**repartir(char *str, char c, char **lines, int lineslen)
 					+ 1));
 		if (!lines[i])
 		{
-			ft_free_split(lines, i);
+			ft_free_array(lines);
 			return (NULL);
 		}
 		j = 0;
