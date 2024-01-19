@@ -1,6 +1,9 @@
 -------------------------
--------- log 0 ---------
+-------- log 1 ---------
 -------------------------
 
  resume:
-  just trying to organize
+  -menu improvement
+  -libft improvement
+  ---//---
+  next step is to start fdf read from file
