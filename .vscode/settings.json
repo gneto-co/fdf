@@ -6,6 +6,7 @@
         "stdarg.h": "c",
         "fcntl.h": "c",
         "stdio.h": "c",
-        "fdf.h": "c"
+        "fdf.h": "c",
+        "errno.h": "c"
     }
 }

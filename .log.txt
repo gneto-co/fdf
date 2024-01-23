@@ -4,6 +4,6 @@
 
  resume:
   little alterations on menu and libft
-  maps : folder addition
+  maps : folder add
   -----//-----
-  fdf > map_reader : add and finished
+  fdf > map_reader : created and finished
