@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/26 13:45:49 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/01/26 15:54:28 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ fdf \
 map_reader \
 $(addprefix window_functions/, \
 projection_window \
+render_rect \
+lines_test \
 ) \
 )
 

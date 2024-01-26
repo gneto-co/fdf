@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/23 14:28:39 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:40:12 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,9 @@ static void	ex_n(void)
 {
 	system("clear");
 	printf("\033[34mnorminette test (only errors): \033[0m\n");
-	system("find . -type d -name '.menu' -prune -o -type f \\( -name '*.c' -o -name '*.h' \\) -exec norminette {} \\; | grep -E 'Error|Warning'");
-	// system("find . -type f \\( -name '*.c' -o -name '*.h' \\) ! -name '.menu/*' -exec norminette {} \\; | grep -E 'Error|Warning'");
+	system("find . -type d \\( -name '.menu' -o -name 'backups' -o -name 'mlx_linux' \\)"
+	" -prune -o -type f \\( -name '*.c' -o -name '*.h' \\)"
+	" -exec norminette {} \\; | grep -E 'Error|Warning'");
 }
 
 static void	ex_r(void)
