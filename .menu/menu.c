@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/23 13:13:21 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:28:39 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ static void	ex_g(void)
 		printf
 		(
 			"\nChose your git command:\n"
-			"\n\033[34m 1\x1b[0m add & commit"
-			"\n\033[34m 2\x1b[0m push"
-			"\n\033[34m 3\x1b[0m pull"
-			"\n\033[34m 4\x1b[0m log"
+			"\n\033[94m 1\x1b[0m add & commit"
+			"\n\033[94m 2\x1b[0m push"
+			"\n\033[94m 3\x1b[0m pull"
+			"\n\033[94m 4\x1b[0m log"
 			"\n ---------"
 			"\n\033[36m c\x1b[0m clear screen"
 			"\n\033[31m q\x1b[0m to quit"

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric_projection.c                             :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 13:09:59 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/23 13:44:49 by gneto-co         ###   ########.fr       */
+/*   Created: 2024/01/12 16:08:11 by gneto-co          #+#    #+#             */
+/*   Updated: 2024/01/23 13:49:55 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	isometric_projection(int **matrix)
+void	fdf(char *file_name)
 {
-    // void	*mlx;
-	// void	*mlx_win;
+	int	**matrix;
+	int	y_max;
 
-	// mlx = mlx_init();
-	// mlx_win = mlx_new_window(mlx, 500, 500, "Hello world!");
-	// mlx_loop(mlx);
+	// just getting the file coordinates to a matrix
+	y_max = ft_filelen(file_name);
+	matrix = get_file_coordinates(file_name, y_max);
 
-// 
-
-    void	*mlx_ptr;
-
-    mlx_ptr = mlx_init();
-    mlx_destroy_display(mlx_ptr);
-    free(mlx_ptr);
+	// starting the window and everything idk
+	projection_window(matrix);
+	
+	free_matrix(&(*matrix), y_max);
 }
