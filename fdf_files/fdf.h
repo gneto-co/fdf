@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/01/26 16:09:24 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:20:42 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,21 @@ void		free_matrix(int **matrix, int matrix_len);
 # define BLUE_PIXEL 0xFF
 # define WHITE_PIXEL 0xFFFFFF
 
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_img;
+
 typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_img	img;
+	int		cur_img;
 }			t_data;
 
 typedef struct s_rect
@@ -76,19 +87,18 @@ typedef struct s_rect
 	int		color;
 }			t_rect;
 
-typedef struct s_index
-{
-	int		x;
-	int		y;
-}			t_index;
-
 int			projection_window(int **matrix);
-int			render_rect(t_data *data, t_rect rect);
+
+// render funtions
+void		render_background(t_img *img, int color);
+int			render_rect(t_img *img, t_rect rect);
+
+// mlx_utils
+void		img_pix_put(t_img *img, int x, int y, int color);
 
 // line tests
-int	line_1(t_data *data);
-int	line_2(t_data *data);
-
+int			line_1(t_data *data);
+int			line_2(t_data *data);
 
 /* *********************************** */
 /*                                     */
