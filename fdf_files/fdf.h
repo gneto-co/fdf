@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/01/29 12:20:42 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:31:35 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void		free_matrix(int **matrix, int matrix_len);
 # define GREEN_PIXEL 0xFF00
 # define BLUE_PIXEL 0xFF
 # define WHITE_PIXEL 0xFFFFFF
+# define BLACK_PIXEL 0x000000
 
 typedef struct s_img
 {
@@ -76,6 +77,7 @@ typedef struct s_data
 	void	*win_ptr;
 	t_img	img;
 	int		cur_img;
+	int		**matrix;
 }			t_data;
 
 typedef struct s_rect
@@ -87,11 +89,34 @@ typedef struct s_rect
 	int		color;
 }			t_rect;
 
-int			projection_window(int **matrix);
+typedef struct s_line
+{
+	int		x0;
+	int		y0;
+	int		x1;
+	int		y1;
+	int		color;
+}			t_line;
+
+// pw
+int			pw(int **matrix);
+int			render(t_data *data);
+
+// pw_operations
+void		setup_image(t_data *data);
+void		setup_hooks(t_data *data);
+int			initialize_data(t_data *data, int **matrix);
+void		free_mlx_stuff(t_data *data);
+
+// handle_functions
+int			handle_keypress(int keysym, t_data *data);
+int			handle_keyrelease(int keysym, void *data);
+int			handle_close(t_data *data);
 
 // render funtions
 void		render_background(t_img *img, int color);
-int			render_rect(t_img *img, t_rect rect);
+void		render_rect(t_img *img, t_rect rect);
+void		render_line(t_img *img, t_line line);
 
 // mlx_utils
 void		img_pix_put(t_img *img, int x, int y, int color);
@@ -99,6 +124,8 @@ void		img_pix_put(t_img *img, int x, int y, int color);
 // line tests
 int			line_1(t_data *data);
 int			line_2(t_data *data);
+int			line_3(t_data *data);
+int			line_4(t_data *data);
 
 /* *********************************** */
 /*                                     */

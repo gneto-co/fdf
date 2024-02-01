@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:50:55 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/29 12:30:28 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:01:52 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,25 @@ int	line_2(t_data *data)
 					+ 1)), 0, 1, WINDOW_HEIGHT, BLUE_PIXEL});
 		i++;
 	}
+	return (0);
+}
+
+int	line_3(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < 100)
+	{
+		render_rect(&data->img, (t_rect){WINDOW_WIDTH / 2 + i, WINDOW_HEIGHT / 2
+			+ i, 1, 1, RED_PIXEL});
+		i++;
+	}
+	return (0);
+}
+
+int	line_4(t_data *data)
+{
+	render_line(&data->img, (t_line){0, 0, 100, 300, RED_PIXEL});
 	return (0);
 }

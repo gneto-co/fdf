@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/29 12:19:54 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/01 13:31:19 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ PROJECT_SOURCES = $(addsuffix .c, \
 fdf \
 map_reader \
 $(addprefix window_functions/, \
-projection_window \
+pw \
 render_functions \
 lines_test \
 mlx_utils \
+handle_functions \
+pw_operations \
 ) \
 )
 
