@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:50:55 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/01 12:01:52 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:37:25 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,28 @@ int	line_4(t_data *data)
 {
 	render_line(&data->img, (t_line){0, 0, 100, 300, RED_PIXEL});
 	return (0);
+}
+
+int draw_area(t_data *data)
+{
+	render_line(&data->img, (t_line){
+		MARGIN_WIDTH, 						MARGIN_HEIGHT,
+		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 	MARGIN_HEIGHT,
+		WHITE_PIXEL
+	});
+	render_line(&data->img, (t_line){
+		MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
+		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 	DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
+		WHITE_PIXEL
+	});
+	render_line(&data->img, (t_line){
+		MARGIN_WIDTH, 						MARGIN_HEIGHT,
+		MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
+		WHITE_PIXEL
+	});
+	render_line(&data->img, (t_line){
+		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 						MARGIN_HEIGHT,
+		DRAWN_AREA_WIDTH + MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
+		WHITE_PIXEL
+	});
 }

@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 10:09:55 by gabriel           #+#    #+#              #
-#    Updated: 2024/01/29 12:24:25 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/02 10:23:35 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ MAIN = $(SOURCES:.c=.o)
 
 CC = cc
 OBJ = $(MAIN) $(PROJECT) $(LIBFT)
-CFLAGS = -Wall -Wextra -Werror -Imlx -I$(LIBFT_PATH) -I$(PROJECT_PATH)
+CFLAGS = -Wall -Wextra -Werror -Imlx -I$(LIBFT_PATH) -I$(PROJECT_PATH) 
 LIB_MINILIBX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 #--------------------------------------------------------------------------------

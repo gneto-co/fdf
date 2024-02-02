@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:27:06 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/01 13:31:03 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:41:27 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	setup_hooks(t_data *data)
 	mlx_loop(data->mlx_ptr);
 }
 
-int	initialize_data(t_data *data, int **matrix)
+int	initialize_data(t_data *data, t_map map)
 {
-	data->matrix = matrix;
+	data->map = map;
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		return (MLX_ERROR);

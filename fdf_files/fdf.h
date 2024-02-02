@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/01 13:31:35 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:37:35 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-typedef struct point_coordinate
+typedef struct s_map
 {
-	int		x;
-	int		y;
-	int		z;
-}			t_point_coordinate;
+	int		**matrix;
+	int		x_max;
+	int		y_max;
+}			t_map;
 
 void		fdf(char *file);
-int			**get_file_coordinates(char *file_name, int y_max);
+t_map		get_file_coordinates(char *file_name, int y_max);
 void		free_matrix(int **matrix, int matrix_len);
 
 /* *********************************** */
@@ -53,6 +53,10 @@ void		free_matrix(int **matrix, int matrix_len);
 
 # define WINDOW_WIDTH 1900
 # define WINDOW_HEIGHT 1000
+# define MARGIN_WIDTH 200
+# define MARGIN_HEIGHT 100
+# define DRAWN_AREA_WIDTH 1500
+# define DRAWN_AREA_HEIGHT 800
 # define WINDOW_NAME "fdf"
 # define MLX_ERROR 1
 
@@ -77,7 +81,7 @@ typedef struct s_data
 	void	*win_ptr;
 	t_img	img;
 	int		cur_img;
-	int		**matrix;
+	t_map	map;
 }			t_data;
 
 typedef struct s_rect
@@ -99,13 +103,14 @@ typedef struct s_line
 }			t_line;
 
 // pw
-int			pw(int **matrix);
+int			pw(t_map map);
 int			render(t_data *data);
+void		drawn_map(t_data *data);
 
 // pw_operations
 void		setup_image(t_data *data);
 void		setup_hooks(t_data *data);
-int			initialize_data(t_data *data, int **matrix);
+int			initialize_data(t_data *data, t_map map);
 void		free_mlx_stuff(t_data *data);
 
 // handle_functions
@@ -126,6 +131,7 @@ int			line_1(t_data *data);
 int			line_2(t_data *data);
 int			line_3(t_data *data);
 int			line_4(t_data *data);
+int			draw_area(t_data *data);
 
 /* *********************************** */
 /*                                     */

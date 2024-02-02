@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:08:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/01 13:32:05 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:50:42 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	fdf(char *file_name)
 {
-	int	**matrix;
 	int	y_max;
+	t_map map;
 
 	// just getting the file coordinates to a matrix
 	y_max = ft_filelen(file_name);
-	matrix = get_file_coordinates(file_name, y_max);
+	map = get_file_coordinates(file_name, y_max);
 
 	// starting the window and everything idk
-	pw(matrix);
+	pw(map);
 	
-	free_matrix(&(*matrix), y_max);
+	free_matrix((map.matrix), y_max);
 }

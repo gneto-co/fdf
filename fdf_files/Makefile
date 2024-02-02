@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/02/01 13:31:19 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/02 11:31:48 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ lines_test \
 mlx_utils \
 handle_functions \
 pw_operations \
+drawn_map \
 ) \
 )
 
