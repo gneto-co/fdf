@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:58:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/02 11:48:51 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:09:17 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ t_map	get_file_coordinates(char *file_name, int y_max)
 		i++;
 	}
 	map.y_max = i;
+	map.line_width = DRAWN_AREA_WIDTH / (map.x_max - 1);
+	map.line_height = DRAWN_AREA_HEIGHT / (map.y_max - 1);
 	close(fd);
 	return (map);
 }

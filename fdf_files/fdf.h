@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/02 12:37:35 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:43:56 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_map
 	int		**matrix;
 	int		x_max;
 	int		y_max;
+	int		line_width;
+	int		line_height;
 }			t_map;
 
 void		fdf(char *file);
@@ -51,12 +53,14 @@ void		free_matrix(int **matrix, int matrix_len);
 /*                                     */
 /* *********************************** */
 
-# define WINDOW_WIDTH 1900
-# define WINDOW_HEIGHT 1000
+# define WINDOW_WIDTH 1300
+# define WINDOW_HEIGHT 700
+# define W_WIDTH_CENTER (WINDOW_WIDTH / 2)
+# define W_HEIGHT_CENTER (WINDOW_HEIGHT / 2)
 # define MARGIN_WIDTH 200
 # define MARGIN_HEIGHT 100
-# define DRAWN_AREA_WIDTH 1500
-# define DRAWN_AREA_HEIGHT 800
+# define DRAWN_AREA_WIDTH (WINDOW_WIDTH - MARGIN_WIDTH * 2)
+# define DRAWN_AREA_HEIGHT (WINDOW_HEIGHT - MARGIN_HEIGHT * 2)
 # define WINDOW_NAME "fdf"
 # define MLX_ERROR 1
 
@@ -79,8 +83,8 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
 	int		cur_img;
+	t_img	img;
 	t_map	map;
 }			t_data;
 
@@ -101,6 +105,13 @@ typedef struct s_line
 	int		y1;
 	int		color;
 }			t_line;
+
+typedef struct s_point
+{
+	int		x;
+	int		y;
+	int		z;
+}			t_point;
 
 // pw
 int			pw(t_map map);
