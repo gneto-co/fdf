@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:15:29 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/05 22:04:48 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:49:18 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ t_point convert_to_iso(t_data *data ,t_point p)
 	return(p2);
 }
 
-void drawn_line_points(t_data *data, t_point p1, t_point p2, t_point pos)
+void drawn_line_points(t_data *data, t_point p1, t_point p2)
 {
 	render_line(&data->img, (t_line){
-		pos.x + p1.x, pos.y + p1.y, 
-		pos.x + p2.x, pos.y + p2.y, WHITE_PIXEL});
+		MARGIN_WIDTH + p1.x, MARGIN_HEIGHT + p1.y, 
+		MARGIN_WIDTH + p2.x, MARGIN_HEIGHT + p2.y, WHITE_PIXEL});
 }
 
 static void	no_transformation(t_data *data)
 {
 	int	x;
 	int	y;
+	t_point p1;
+	t_point p2;
 
 	// ft_printf("x max: %d, y max: %d\n", data->map.x_max, data->map.y_max);
 
@@ -44,11 +46,19 @@ static void	no_transformation(t_data *data)
 		while (x + 1 < data->map.x_max)
 		{
 			// drawn a line between point (x,y) and point (x+1,y)
-			render_line(&data->img, (t_line){
-				MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
-				MARGIN_WIDTH + data->map.line_width * (x+1), MARGIN_HEIGHT + data->map.line_height * y,
-				WHITE_PIXEL
-			});
+
+			// option 1
+			p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
+			p2 = (t_point){data->map.line_width * (x+1), data->map.line_height * y, data->map.matrix[y][x+1]};
+			drawn_line_points(data, p1, p2);
+			
+			// option 2
+			// render_line(&data->img, (t_line){
+			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
+			// 	MARGIN_WIDTH + data->map.line_width * (x+1), MARGIN_HEIGHT + data->map.line_height * y,
+			// 	WHITE_PIXEL
+			// });
+			
 			x++;
 		}
 		y++;
@@ -61,11 +71,19 @@ static void	no_transformation(t_data *data)
 		while (y + 1 < data->map.y_max)
 		{
 			// drawn a line between point (x,y) and point (x,y+1)
-			render_line(&data->img, (t_line){
-				MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
-				MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * (y+1),
-				WHITE_PIXEL
-			});
+			
+			// option 1
+			p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
+			p2 = (t_point){data->map.line_width * x, data->map.line_height * (y+1), data->map.matrix[y+1][x]};
+			drawn_line_points(data, p1, p2);
+			
+			// option 2
+			// render_line(&data->img, (t_line){
+			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
+			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * (y+1),
+			// 	WHITE_PIXEL
+			// });
+			
 			y++;
 		}
 		x++;
@@ -78,39 +96,39 @@ static void	no_transformation(t_data *data)
 
 void	drawn_map(t_data *data)
 {	
-	// no_transformation(data);
+	no_transformation(data);
 
 
 
 	
-	int n1 = -100;
-	int n2 = 100;
-	int altura = 10;
-	t_point pos = {W_WIDTH_CENTER, W_HEIGHT_CENTER};
+	// int n1 = -100;
+	// int n2 = 100;
+	// int altura = 10;
+	// t_point pos = {W_WIDTH_CENTER, W_HEIGHT_CENTER};
 	
-	t_point uL = {n1, n1, altura};
-	t_point uR = {n2, n1, altura};
-	t_point dL = {n1, n2, altura};
-	t_point dR = {n2, n2, altura};
+	// t_point uL = {n1, n1, altura};
+	// t_point uR = {n2, n1, altura};
+	// t_point dL = {n1, n2, altura};
+	// t_point dR = {n2, n2, altura};
 
-	drawn_line_points(data, uL, uR, pos);
-	drawn_line_points(data, dL, dR, pos);
+	// drawn_line_points(data, uL, uR, pos);
+	// drawn_line_points(data, dL, dR, pos);
 
-	drawn_line_points(data, uL, dL, pos);
-	drawn_line_points(data, uR, dR, pos);
+	// drawn_line_points(data, uL, dL, pos);
+	// drawn_line_points(data, uR, dR, pos);
 
-	// --------------------------------------------
+	// // --------------------------------------------
 	
-	t_point uL2 = convert_to_iso(data, uL);
-	t_point uR2 = convert_to_iso(data, uR);
-	t_point dL2 = convert_to_iso(data, dL);
-	t_point dR2 = convert_to_iso(data, dR);
+	// t_point uL2 = convert_to_iso(data, uL);
+	// t_point uR2 = convert_to_iso(data, uR);
+	// t_point dL2 = convert_to_iso(data, dL);
+	// t_point dR2 = convert_to_iso(data, dR);
 
-	drawn_line_points(data, uL2, uR2, pos);
-	drawn_line_points(data, dL2, dR2, pos);
+	// drawn_line_points(data, uL2, uR2, pos);
+	// drawn_line_points(data, dL2, dR2, pos);
 	
-	drawn_line_points(data, uL2, dL2, pos);
-	drawn_line_points(data, uR2, dR2, pos);
+	// drawn_line_points(data, uL2, dL2, pos);
+	// drawn_line_points(data, uR2, dR2, pos);
 
 
 
