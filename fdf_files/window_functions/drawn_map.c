@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:15:29 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/06 00:51:11 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:13:02 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,34 @@ t_point iso(t_data *data ,t_point p)
 {	
 	t_point p2;
 	static float s = 1;
-	float speed = 0.0001;
-	float max = 5;
+	float speed = 0.0006;
+	float max = 10;
 	float min = 1;
-	static float n1 = 1;
-	float angle;
-	int altura;
+	static float var = 1;
 	
-	if (n1 > max)
+	// configurations
+	float angle;
+	float radian_angle;
+	int height;
+	int zoom;
+	
+	if (var > max)
 		s = 0;
-	if (n1 <= min)
+	if (var <= min)
 		s = 1;
 		
 	if (s == 1)
-		n1+=speed;
+		var+=speed;
 	else
-		n1-=speed;
-	printf("\n\n%f\n\n",n1);
-	
-	// p2.x = (p.z-p.x)/sqrt(2);
-	// p2.y = (p.x+(n1*p.y)+p.z)/sqrt(6);
-	altura = -15;
-	angle = 70;
-	// Converte o ângulo para radianos, pois a função sin e cos em C usa radianos
-	float radian_angle = angle * M_PI / 180.0;
-	p2.x = (p.x - altura * p.z * cos(radian_angle) - p.y * sin(radian_angle)) / sqrt(1);
-	p2.y = (p.x * sin(radian_angle) + (2 * p.y) * cos(radian_angle) + altura * p.z) / sqrt(1.5);
+		var-=speed;
+	// printf("\n\n%f\n\n",n1);
+
+	height = -20;
+	angle =  70;
+	// convert tha angle to radians, sin and cos use radians
+	radian_angle = angle * M_PI / 180.0;
+	p2.x = (p.x - height * p.z * cos(radian_angle) - p.y * sin(radian_angle)) / sqrt(2);
+	p2.y = (p.x * sin(radian_angle) + (2 * p.y) * cos(radian_angle) + height * p.z) / sqrt(6);
 	return(p2);
 }
 
@@ -53,10 +55,10 @@ void drawn_line_points(t_data *data, t_point p1, t_point p2)
 	ip1= iso(data, p1);
 	ip2= iso(data, p2);
 	
-	render_line(&data->img, (t_line){
+	render_line(data, (t_line){
 		(MARGIN_WIDTH * 1.5) + ip1.x, MARGIN_HEIGHT + ip1.y, 
 		(MARGIN_WIDTH * 1.5) + ip2.x, MARGIN_HEIGHT + ip2.y, 
-		WHITE_PIXEL});
+		p1.z, p2.z});
 }
 
 static void	no_transformation(t_data *data)
@@ -78,17 +80,15 @@ static void	no_transformation(t_data *data)
 			// drawn a line between point (x,y) and point (x+1,y)
 
 			// option 1
-			p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
-			p2 = (t_point){data->map.line_width * (x+1), data->map.line_height * y, data->map.matrix[y][x+1]};
-			drawn_line_points(data, p1, p2);
+			// p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
+			// p2 = (t_point){data->map.line_width * (x+1), data->map.line_height * y, data->map.matrix[y][x+1]};
+			// drawn_line_points(data, p1, p2);
 			
 			// option 2
-			// render_line(&data->img, (t_line){
-			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
-			// 	MARGIN_WIDTH + data->map.line_width * (x+1), MARGIN_HEIGHT + data->map.line_height * y,
-			// 	WHITE_PIXEL
-			// });
-			
+			p1 = (t_point){LINE_WIDTH * x, LINE_HEIGHT * y, data->map.matrix[y][x]};
+			p2 = (t_point){LINE_WIDTH * (x+1), LINE_HEIGHT * y, data->map.matrix[y][x+1]};
+			drawn_line_points(data, p1, p2);
+
 			x++;
 		}
 		y++;
@@ -103,16 +103,15 @@ static void	no_transformation(t_data *data)
 			// drawn a line between point (x,y) and point (x,y+1)
 			
 			// option 1
-			p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
-			p2 = (t_point){data->map.line_width * x, data->map.line_height * (y+1), data->map.matrix[y+1][x]};
-			drawn_line_points(data, p1, p2);
+			// p1 = (t_point){data->map.line_width * x, data->map.line_height * y, data->map.matrix[y][x]};
+			// p2 = (t_point){data->map.line_width * x, data->map.line_height * (y+1), data->map.matrix[y+1][x]};
+			// drawn_line_points(data, p1, p2);
 			
 			// option 2
-			// render_line(&data->img, (t_line){
-			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * y,
-			// 	MARGIN_WIDTH + data->map.line_width * x, MARGIN_HEIGHT + data->map.line_height * (y+1),
-			// 	WHITE_PIXEL
-			// });
+			p1 = (t_point){LINE_WIDTH * x, LINE_HEIGHT * y, data->map.matrix[y][x]};
+			p2 = (t_point){LINE_WIDTH * x, LINE_HEIGHT * (y+1), data->map.matrix[y+1][x]};
+			drawn_line_points(data, p1, p2);
+	
 			
 			y++;
 		}

@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:58:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/05 19:09:17 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:24:21 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ static int	*line_to_vector(char *line, t_map *map)
 	while (str[i])
 	{
 		vector[i] = atoi(str[i]);
+		if (atoi(str[i]) > map->z_max)
+			map->z_max = atoi(str[i]);
+		if (atoi(str[i]) < map->z_min)
+			map->z_min = atoi(str[i]);
 		i++;
 	}
 	map->x_max = i;
@@ -51,6 +55,8 @@ t_map	get_file_coordinates(char *file_name, int y_max)
 	int		i;
 	char	*str;
 
+	map.z_max = 0;
+	map.z_min = 0;
 	i = 0;
 	fd = open(file_name, O_RDONLY);
 	if (!fd)

@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/06 00:47:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:12:21 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_map
 	int		**matrix;
 	int		x_max;
 	int		y_max;
+	int		z_max;
+	int		z_min;
 	int		line_width;
 	int		line_height;
 }			t_map;
@@ -53,22 +55,31 @@ void		free_matrix(int **matrix, int matrix_len);
 /*                                     */
 /* *********************************** */
 
+// window parameters
 # define WINDOW_WIDTH 1100
 # define WINDOW_HEIGHT 1000
 # define W_WIDTH_CENTER (WINDOW_WIDTH / 2)
 # define W_HEIGHT_CENTER (WINDOW_HEIGHT / 2)
-# define MARGIN_WIDTH 300
-# define MARGIN_HEIGHT 300
+# define MARGIN_WIDTH 400
+# define MARGIN_HEIGHT 400
 # define DRAWN_AREA_WIDTH (WINDOW_WIDTH - MARGIN_WIDTH * 2)
 # define DRAWN_AREA_HEIGHT (WINDOW_HEIGHT - MARGIN_HEIGHT * 2)
 # define WINDOW_NAME "fdf"
 # define MLX_ERROR 1
-
+# define LINE_WIDTH 20
+# define LINE_HEIGHT 20
+// colors
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0xFF00
 # define BLUE_PIXEL 0xFF
 # define WHITE_PIXEL 0xFFFFFF
 # define BLACK_PIXEL 0x000000
+# define UPPER_COLOR RED_PIXEL
+# define BOTTOM_COLOR BLUE_PIXEL
+# define COLOR_MAX 130
+# define COLOR_MIN 30
+// pi
+# define M_PI 3.14159265358979323846
 
 typedef struct s_img
 {
@@ -103,7 +114,8 @@ typedef struct s_line
 	int		y0;
 	int		x1;
 	int		y1;
-	int		color;
+	int		z0;
+	int		z1;
 }			t_line;
 
 typedef struct s_point
@@ -132,10 +144,11 @@ int			handle_close(t_data *data);
 // render funtions
 void		render_background(t_img *img, int color);
 void		render_rect(t_img *img, t_rect rect);
-void		render_line(t_img *img, t_line line);
+void		render_line(t_data *data, t_line line);
 
 // mlx_utils
 void		img_pix_put(t_img *img, int x, int y, int color);
+int			ft_rgb_to_int(int red, int green, int blue);
 
 // line tests
 int			line_1(t_data *data);

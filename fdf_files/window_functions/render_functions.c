@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:24:00 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/01 12:11:04 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 22:05:30 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_rl
 	int		sy;
 	int		err;
 	int		e2;
+	int		z_increment;
 }			t_rl;
 
 void	render_rect(t_img *img, t_rect rect)
@@ -54,11 +55,34 @@ void	render_background(t_img *img, int color)
 	}
 }
 
-static void	render_line_2(t_img *img, t_line line, t_rl rl)
+int calc_up_color(t_data *data, int z)
 {
+	ft_printf("\nz: %d\nz_min: %d\nz_max: %d\n",z,data->map.z_min,data->map.z_max);
+	return((z*COLOR_MAX)/(data->map.z_max - data->map.z_min));
+}
+
+int calc_down_color(t_data *data, int z)
+{
+	return(((data->map.z_max - z)*COLOR_MAX)/(data->map.z_max - data->map.z_min));
+}
+
+static void	render_line_2(t_data *data, t_line line, t_rl rl)
+{
+	int color;
+	int z = line.z0;
+	
 	while (1)
 	{
-		img_pix_put(img, line.x0, line.y0, line.color);
+		color = ft_rgb_to_int(
+			calc_down_color(data, z),
+			calc_up_color(data, z),
+			250
+		);
+		img_pix_put(&data->img, line.x0, line.y0, color);
+
+		printf("\n\n%d\n\n",z);
+		
+
 		if (line.x0 == line.x1 && line.y0 == line.y1)
 			break ;
 		rl.e2 = 2 * rl.err;
@@ -71,11 +95,21 @@ static void	render_line_2(t_img *img, t_line line, t_rl rl)
 		{
 			rl.err = rl.err + rl.dx;
 			line.y0 = line.y0 + rl.sy;
+			z += rl.z_increment;
 		}
 	}
 }
 
-void	render_line(t_img *img, t_line line)
+int max(int a, int b) 
+{
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+void	render_line(t_data *data, t_line line)
 {
 	t_rl	rl;
 
@@ -90,6 +124,12 @@ void	render_line(t_img *img, t_line line)
 	else
 		rl.sy = -1;
 	rl.err = rl.dx - rl.dy;
-	render_line_2(img, line, rl);
+	
+	// Calcula o incremento de z
+	int delta_z = line.z1 - line.z0;
+	int total_steps = max(abs(line.x1 - line.x0), abs(line.y1 - line.y0));
+	rl.z_increment = (float)delta_z / total_steps;
+	
+	render_line_2(data, line, rl);
 }
 // algoritmo de Bresenham
