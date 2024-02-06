@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/05 22:39:34 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:50:01 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // cc .menu/* -o .menu_exe && ./.menu_exe
 
 char		g_name[] = "fdf";
-char		g_args[] = "maps/a.fdf";
+char		g_args[] = "maps/pyramide.fdf";
 
 #pragma region ex_number
 

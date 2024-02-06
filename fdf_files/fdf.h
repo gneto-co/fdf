@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/05 20:43:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:47:56 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void		free_matrix(int **matrix, int matrix_len);
 /*                                     */
 /* *********************************** */
 
-# define WINDOW_WIDTH 1300
-# define WINDOW_HEIGHT 700
+# define WINDOW_WIDTH 1100
+# define WINDOW_HEIGHT 1000
 # define W_WIDTH_CENTER (WINDOW_WIDTH / 2)
 # define W_HEIGHT_CENTER (WINDOW_HEIGHT / 2)
-# define MARGIN_WIDTH 200
-# define MARGIN_HEIGHT 100
+# define MARGIN_WIDTH 300
+# define MARGIN_HEIGHT 300
 # define DRAWN_AREA_WIDTH (WINDOW_WIDTH - MARGIN_WIDTH * 2)
 # define DRAWN_AREA_HEIGHT (WINDOW_HEIGHT - MARGIN_HEIGHT * 2)
 # define WINDOW_NAME "fdf"

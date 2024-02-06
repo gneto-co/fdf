@@ -6,27 +6,57 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:15:29 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/05 22:49:18 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:51:11 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-t_point convert_to_iso(t_data *data ,t_point p)
+t_point iso(t_data *data ,t_point p)
 {	
 	t_point p2;
+	static float s = 1;
+	float speed = 0.0001;
+	float max = 5;
+	float min = 1;
+	static float n1 = 1;
+	float angle;
+	int altura;
 	
-	p2.x = (p.x-p.z)/sqrt(3);
-	p2.y = (p.x+2*p.y+p.z)/sqrt(6);
+	if (n1 > max)
+		s = 0;
+	if (n1 <= min)
+		s = 1;
+		
+	if (s == 1)
+		n1+=speed;
+	else
+		n1-=speed;
+	printf("\n\n%f\n\n",n1);
 	
+	// p2.x = (p.z-p.x)/sqrt(2);
+	// p2.y = (p.x+(n1*p.y)+p.z)/sqrt(6);
+	altura = -15;
+	angle = 70;
+	// Converte o ângulo para radianos, pois a função sin e cos em C usa radianos
+	float radian_angle = angle * M_PI / 180.0;
+	p2.x = (p.x - altura * p.z * cos(radian_angle) - p.y * sin(radian_angle)) / sqrt(1);
+	p2.y = (p.x * sin(radian_angle) + (2 * p.y) * cos(radian_angle) + altura * p.z) / sqrt(1.5);
 	return(p2);
 }
 
 void drawn_line_points(t_data *data, t_point p1, t_point p2)
 {
+	t_point ip1;
+	t_point ip2;
+
+	ip1= iso(data, p1);
+	ip2= iso(data, p2);
+	
 	render_line(&data->img, (t_line){
-		MARGIN_WIDTH + p1.x, MARGIN_HEIGHT + p1.y, 
-		MARGIN_WIDTH + p2.x, MARGIN_HEIGHT + p2.y, WHITE_PIXEL});
+		(MARGIN_WIDTH * 1.5) + ip1.x, MARGIN_HEIGHT + ip1.y, 
+		(MARGIN_WIDTH * 1.5) + ip2.x, MARGIN_HEIGHT + ip2.y, 
+		WHITE_PIXEL});
 }
 
 static void	no_transformation(t_data *data)
