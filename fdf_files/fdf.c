@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:08:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/02 11:50:42 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:39:31 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	fdf(char *file_name)
 	y_max = ft_filelen(file_name);
 	map = get_file_coordinates(file_name, y_max);
 
-	// starting the window and everything idk
+	// starting the window loop
 	pw(map);
 	
 	free_matrix((map.matrix), y_max);

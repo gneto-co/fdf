@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:50:55 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/06 21:42:49 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:41:08 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,26 +76,27 @@ int	line_4(t_data *data)
 	return (0);
 }
 
-int draw_area(t_data *data)
+void draw_area(t_data *data, t_rect sqr)
 {
 	render_line(data, (t_line){
-		MARGIN_WIDTH, 						MARGIN_HEIGHT,
-		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 	MARGIN_HEIGHT,
-		WHITE_PIXEL
+		sqr.x,				sqr.y, // 1
+		sqr.x + sqr.width,	sqr.y, // 2
+		53
 	});
 	render_line(data, (t_line){
-		MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
-		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 	DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
-		WHITE_PIXEL
+		sqr.x,				sqr.y, // 1
+		sqr.x,		sqr.y + sqr.height,// 3
+		53
 	});
 	render_line(data, (t_line){
-		MARGIN_WIDTH, 						MARGIN_HEIGHT,
-		MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
-		WHITE_PIXEL
+		sqr.x + sqr.width,	sqr.y, // 2
+		sqr.x + sqr.width,		sqr.y + sqr.height,// 4
+		53
 	});
 	render_line(data, (t_line){
-		DRAWN_AREA_WIDTH + MARGIN_WIDTH, 						MARGIN_HEIGHT,
-		DRAWN_AREA_WIDTH + MARGIN_WIDTH,						DRAWN_AREA_HEIGHT + MARGIN_HEIGHT,
-		WHITE_PIXEL
+		sqr.x,		sqr.y + sqr.height,// 3
+		sqr.x + sqr.width,		sqr.y + sqr.height,// 4
+		53
 	});
+
 }

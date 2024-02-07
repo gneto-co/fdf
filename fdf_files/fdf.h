@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/06 23:12:21 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:24:52 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_map
 	int		z_min;
 	int		line_width;
 	int		line_height;
+	int		extra_width;
+	int		extra_height;
 }			t_map;
 
 void		fdf(char *file);
@@ -56,18 +58,32 @@ void		free_matrix(int **matrix, int matrix_len);
 /* *********************************** */
 
 // window parameters
-# define WINDOW_WIDTH 1100
-# define WINDOW_HEIGHT 1000
+// -window
+# define WINDOW_WIDTH 1900
+# define WINDOW_HEIGHT 900
 # define W_WIDTH_CENTER (WINDOW_WIDTH / 2)
 # define W_HEIGHT_CENTER (WINDOW_HEIGHT / 2)
-# define MARGIN_WIDTH 400
-# define MARGIN_HEIGHT 400
-# define DRAWN_AREA_WIDTH (WINDOW_WIDTH - MARGIN_WIDTH * 2)
-# define DRAWN_AREA_HEIGHT (WINDOW_HEIGHT - MARGIN_HEIGHT * 2)
+// -margin
+# define MARGIN_WIDTH (WINDOW_WIDTH * 0.05)
+# define MARGIN_HEIGHT (WINDOW_WIDTH * 0.05)
+// -text area
+# define TEXT_WIDTH_START (MARGIN_WIDTH)
+# define TEXT_WIDTH (WINDOW_WIDTH * 0.20)
+# define TEXT_HEIGHT_START (MARGIN_HEIGHT)
+# define TEXT_HEIGHT (WINDOW_HEIGHT * 0.80)
+// -draw area
+# define DRAW_WIDTH_START (MARGIN_WIDTH * 2 + TEXT_WIDTH)
+# define DRAW_WIDTH (WINDOW_WIDTH * 0.65)
+# define DRAW_HEIGHT_START (MARGIN_HEIGHT)
+# define DRAW_HEIGHT (WINDOW_HEIGHT * 0.80)
+// -figure
+# define  LINE_WIDTH 90
+# define LINE_HEIGHT 90
+// -others
 # define WINDOW_NAME "fdf"
 # define MLX_ERROR 1
-# define LINE_WIDTH 20
-# define LINE_HEIGHT 20
+//
+//
 // colors
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0xFF00
@@ -76,6 +92,7 @@ void		free_matrix(int **matrix, int matrix_len);
 # define BLACK_PIXEL 0x000000
 # define UPPER_COLOR RED_PIXEL
 # define BOTTOM_COLOR BLUE_PIXEL
+# define BORDERS_COLOR 0x1080FF
 # define COLOR_MAX 130
 # define COLOR_MIN 30
 // pi
@@ -128,7 +145,7 @@ typedef struct s_point
 // pw
 int			pw(t_map map);
 int			render(t_data *data);
-void		drawn_map(t_data *data);
+void		draw_map(t_data *data);
 
 // pw_operations
 void		setup_image(t_data *data);
@@ -144,6 +161,7 @@ int			handle_close(t_data *data);
 // render funtions
 void		render_background(t_img *img, int color);
 void		render_rect(t_img *img, t_rect rect);
+void		render_p_line(t_data *data, t_line line);
 void		render_line(t_data *data, t_line line);
 
 // mlx_utils
@@ -155,7 +173,7 @@ int			line_1(t_data *data);
 int			line_2(t_data *data);
 int			line_3(t_data *data);
 int			line_4(t_data *data);
-int			draw_area(t_data *data);
+void		draw_area(t_data *data, t_rect sqr);
 
 /* *********************************** */
 /*                                     */
