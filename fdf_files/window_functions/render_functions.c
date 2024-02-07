@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:24:00 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 11:04:15 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:15:22 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,13 @@ void	render_background(t_img *img, int color)
 
 int calc_up_color(t_data *data, int z)
 {
-	return((z*COLOR_MAX)/(data->map.z_max - data->map.z_min));
+	return((z*(data->map.extra_color))/(data->map.z_max - data->map.z_min));
+
 }
 
 int calc_down_color(t_data *data, int z)
 {
-	return(((data->map.z_max - z)*COLOR_MAX)/(data->map.z_max - data->map.z_min));
+	return(((data->map.z_max - z)*(COLOR_MAX))/(data->map.z_max - data->map.z_min));
 }
 
 static void	render_p_line_2(t_data *data, t_line line, t_rl rl)

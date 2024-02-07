@@ -62,7 +62,7 @@ t_point iso(t_data *data ,t_point p)
 
 	// definitions
 	height = 100; // 100
-	z_scale = 30; // 30
+	z_scale = data->map.extra_z; // 30
 	angle = 45; //45
 	vertical_angle = 45 + data->map.extra_angle; //45
 
@@ -93,7 +93,7 @@ void draw_line_points(t_data *data, t_point p1, t_point p2)
 	ahm = ((DRAW_HEIGHT/(data->map.y_max+2))*2) - data->map.line_height - data->map.extra_height;
 	// ahm = DRAW_HEIGHT/2;
 
-	img_pix_put(&data->img, DRAW_WIDTH_START + awm, DRAW_HEIGHT_START + ahm,RED_PIXEL);
+	// img_pix_put(&data->img, DRAW_WIDTH_START + awm, DRAW_HEIGHT_START + ahm,RED_PIXEL);
 	render_p_line(data, (t_line){
 		DRAW_WIDTH_START + awm + ip1.x, DRAW_HEIGHT_START + ahm + ip1.y, 
 		DRAW_WIDTH_START + awm + ip2.x, DRAW_HEIGHT_START + ahm + ip2.y, 
@@ -151,7 +151,7 @@ static void	draw_y_lines(t_data *data)
 void	draw_map(t_data *data)
 {	
 	draw_area(data, (t_rect){DRAW_WIDTH_START, DRAW_HEIGHT_START, DRAW_WIDTH, DRAW_HEIGHT});
-	draw_area(data, (t_rect){TEXT_WIDTH_START, TEXT_HEIGHT_START, TEXT_WIDTH, TEXT_HEIGHT});
+	// draw_area(data, (t_rect){TEXT_WIDTH_START, TEXT_HEIGHT_START, TEXT_WIDTH, TEXT_HEIGHT});
 	draw_x_lines(data);
 	draw_y_lines(data);
 }

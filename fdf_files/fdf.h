@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/07 17:33:23 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:02:56 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_map
 	int		extra_width;
 	int		extra_height;
 	int		extra_angle;
+	int		extra_z;
+	int 	extra_color;
 }			t_map;
 
 void		fdf(char *file);
@@ -68,18 +70,23 @@ void		free_matrix(int **matrix, int matrix_len);
 # define MARGIN_WIDTH (WINDOW_WIDTH * 0.05)
 # define MARGIN_HEIGHT (WINDOW_WIDTH * 0.05)
 // -text area
-# define TEXT_WIDTH_START (MARGIN_WIDTH)
-# define TEXT_WIDTH (WINDOW_WIDTH * 0.20)
-# define TEXT_HEIGHT_START (MARGIN_HEIGHT)
-# define TEXT_HEIGHT (WINDOW_HEIGHT * 0.80)
+// # define TEXT_WIDTH_START (MARGIN_WIDTH)
+// # define TEXT_WIDTH (WINDOW_WIDTH * 0.20)
+// # define TEXT_HEIGHT_START (MARGIN_HEIGHT)
+// # define TEXT_HEIGHT (WINDOW_HEIGHT * 0.80)
 // -draw area
-# define DRAW_WIDTH_START (MARGIN_WIDTH * 2 + TEXT_WIDTH)
-# define DRAW_WIDTH (WINDOW_WIDTH * 0.65)
+# define DRAW_WIDTH_START (MARGIN_WIDTH)
+# define DRAW_WIDTH (WINDOW_WIDTH * 0.90)
 # define DRAW_HEIGHT_START (MARGIN_HEIGHT)
 # define DRAW_HEIGHT (WINDOW_HEIGHT * 0.80)
 // -figure
-# define  LINE_WIDTH 90
-# define LINE_HEIGHT 90
+# define LINE_WIDTH 20
+# define LINE_HEIGHT 20
+# define EXTRA_WIDTH 0
+# define EXTRA_HEIGHT -300
+# define EXTRA_Z 3
+# define EXTRA_ANGLE 0
+# define EXTRA_COLOR 0
 // -others
 # define WINDOW_NAME "fdf"
 # define MLX_ERROR 1
@@ -94,8 +101,8 @@ void		free_matrix(int **matrix, int matrix_len);
 # define UPPER_COLOR RED_PIXEL
 # define BOTTOM_COLOR BLUE_PIXEL
 # define BORDERS_COLOR 0x1080FF
-# define COLOR_MAX 130
-# define COLOR_MIN 30
+# define COLOR_MAX 130 // 130
+# define COLOR_MIN 30 // 30
 // pi
 # define M_PI 3.14159265358979323846
 

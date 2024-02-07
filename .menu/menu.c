@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/06 21:48:44 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/07 21:41:02 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,24 @@
 // run that in your file
 // cc .menu/* -o .menu_exe && ./.menu_exe
 
+const int 	maps_count = 6;
 char		g_name[] = "fdf";
-char		g_args[] = "maps/a.fdf";
+char		*g_args[] = {
+	"maps/elem2.fdf", "maps/42.fdf", "maps/pyramide.fdf",
+	"maps/pylone.fdf", "maps/100-6.fdf", "maps/mars.fdf",
+	};
+int			arg_i = 0;
 
 #pragma region ex_number
+
+static void	ex_0(void)
+{
+	if (arg_i + 1 == maps_count)
+		arg_i = 0;
+	else
+		arg_i++;
+	printf("\nArgument number %d:\n %s\n",arg_i,g_args[arg_i]);
+}
 
 static void	ex_1(void)
 {
@@ -26,7 +40,7 @@ static void	ex_1(void)
 	int		j;
 
 	j = 0;
-	str = ft_multi_strjoin(" ./%s %s", g_name, g_args);
+	str = ft_multi_strjoin(" ./%s %s", g_name, g_args[arg_i]);
 	system(str);
 	free(str);
 }
@@ -34,7 +48,7 @@ static void	ex_2(void)
 {
 	char	*str;
 
-	str = ft_multi_strjoin("valgrind ./%s %s", g_name, g_args);
+	str = ft_multi_strjoin("valgrind ./%s %s", g_name, g_args[arg_i]);
 	system(str);
 	free(str);
 }
@@ -166,6 +180,7 @@ static char	main_menu()
 	printf
 	(
 		"\nExecute:\n"
+		"\n\033[93m 0\x1b[0m next map"
 		"\n\033[93m 1\x1b[0m ./fdf"
 		"\n\033[93m 2\x1b[0m valgrind ./fdf"
 		"\n\033[32m 3\x1b[0m make re"
@@ -185,7 +200,9 @@ static char	main_menu()
 
 static void	sort_number(char c)
 {
-	if (c == '1')
+	if (c == '0')
+		ex_0();
+	else if (c == '1')
 		ex_1();
 	else if (c == '2')
 		ex_2();
