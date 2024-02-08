@@ -63,8 +63,8 @@ t_point iso(t_data *data ,t_point p)
 	// definitions
 	height = 100; // 100
 	z_scale = data->map.extra_z; // 30
-	angle = 45; //45
-	vertical_angle = 45 + data->map.extra_angle; //45
+	angle = 45 + data->map.extra_angle; //45
+	vertical_angle = 45 + data->map.extra_vertical_angle; //45
 
 	// angle conversions
 	radian_angle = angle * M_PI / 180.0;

@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:08:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 23:14:37 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:04:27 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,16 @@ void	fdf(char *file_name)
 		"\n(W) \t\t: move image up"
 		"\n(S) \t\t: move image down"
 		"\n"
+		"\n(E) \t\t: move speed increase"
+		"\n(Q) \t\t: move speed decrease"
+		"\n"
 		"\n(Up Arrow) \t: rotate forward"
 		"\n(Down Arrow) \t: rotate backward"
-		"\n(Left Arrow)   \t: zoom in"
-		"\n(Right Arrow) \t: zoom out"
+		"\n(Left Arrow) \t: rotate to the left"
+		"\n(Right Arrow) \t: rotate to the right"
 		"\n"
+		"\n(I) \t\t: zoom in"
+		"\n(O) \t\t: zoom out"
 		"\n(R) \t\t: increase height"
 		"\n(F) \t\t: decrease height"
 		"\n"

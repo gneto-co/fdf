@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:24:00 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 23:15:22 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 10:41:14 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	render_background(t_img *img, int color)
 
 int calc_up_color(t_data *data, int z)
 {
-	return((z*(data->map.extra_color))/(data->map.z_max - data->map.z_min));
+	return((z*(COLOR_MAX))/(data->map.z_max - data->map.z_min));
 
 }
 
 int calc_down_color(t_data *data, int z)
 {
-	return(((data->map.z_max - z)*(COLOR_MAX))/(data->map.z_max - data->map.z_min));
+	return(((data->map.z_max - z)*(COLOR_MIN))/(data->map.z_max - data->map.z_min));
 }
 
 static void	render_p_line_2(t_data *data, t_line line, t_rl rl)
@@ -74,9 +74,9 @@ static void	render_p_line_2(t_data *data, t_line line, t_rl rl)
 	while (1)
 	{
 		color = ft_rgb_to_int(
-			calc_down_color(data, z),
+			calc_down_color(data, z) + data->map.extra_color,
 			calc_up_color(data, z),
-			250
+			250 - data->map.extra_color
 		);
 		if(	line.x0 > DRAW_WIDTH_START && line.x0 < DRAW_WIDTH + DRAW_WIDTH_START &&
 		line.y0 > DRAW_HEIGHT_START && line.y0 < DRAW_HEIGHT + DRAW_HEIGHT_START)

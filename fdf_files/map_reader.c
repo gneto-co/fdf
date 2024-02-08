@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:58:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 23:13:04 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:26:23 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_map	get_file_coordinates(char *file_name, int y_max)
 	map.extra_width  = EXTRA_WIDTH;
 	map.extra_height = EXTRA_HEIGHT;
 	map.extra_angle = 0;
+	map.extra_vertical_angle = 0;
 	map.extra_color = 130;
 	map.extra_z = EXTRA_Z;
 	close(fd);

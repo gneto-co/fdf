@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/07 23:02:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:24:37 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_map
 	int		extra_width;
 	int		extra_height;
 	int		extra_angle;
+	int		extra_vertical_angle;
 	int		extra_z;
 	int 	extra_color;
 }			t_map;

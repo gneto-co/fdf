@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 21:41:02 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:15:21 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 // run that in your file
 // cc .menu/* -o .menu_exe && ./.menu_exe
 
-const int 	maps_count = 6;
+const int 	maps_count = 9;
 char		g_name[] = "fdf";
 char		*g_args[] = {
 	"maps/elem2.fdf", "maps/42.fdf", "maps/pyramide.fdf",
 	"maps/pylone.fdf", "maps/100-6.fdf", "maps/mars.fdf",
+	"maps/t1.fdf", "maps/t2.fdf", "maps/ma.fdf",
 	};
 int			arg_i = 0;
 
