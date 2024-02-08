@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:23:16 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/19 15:35:51 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:15:05 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_free_array(char **array)
 	i = 0;
 	while (array[i])
 	{
-        
 		free(array[i]);
 		i++;
 	}

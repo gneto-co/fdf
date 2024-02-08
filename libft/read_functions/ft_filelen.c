@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:23:24 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/23 14:25:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:22:22 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 size_t	ft_filelen(char *file_name)
 {
-	int i;
-	int fd;
-	char *str;
+	int		i;
+	int		fd;
+	char	*str;
 
 	fd = open(file_name, O_RDONLY);
 	if (!fd)
-		return -1;
+		return (-1);
 	i = 0;
-	while ((str = get_next_line(fd)))
+	while (1)
 	{
+		str = get_next_line(fd);
+		if (!str)
+			break ;
 		free(str);
 		i++;
 	}

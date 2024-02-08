@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/02/07 15:51:13 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/08 19:56:18 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ map_reader \
 $(addprefix window_functions/, \
 pw \
 render_functions \
-lines_test \
+render_lines \
+isometric_calculations \
 mlx_utils \
 handle_functions \
 pw_operations \

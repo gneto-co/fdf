@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:27:56 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/08 12:20:40 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:35:59 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 // run that in your file
 // cc .menu/* -o .menu_exe && ./.menu_exe
 
-const int 	maps_count = 11;
+const int 	maps_count = 12;
 char		g_name[] = "fdf";
 char		*g_args[] = {
 	"maps/42.fdf", "maps/elem2.fdf", "maps/pyramide.fdf",
 	"maps/pylone.fdf", "maps/100-6.fdf", "maps/mars.fdf",
 	"maps/t1.fdf", "maps/t2.fdf", "maps/ma.fdf",
-	"maps/ro.fdf", "maps/good_job.fdf"
+	"maps/ro.fdf", "maps/good_job.fdf", "maps/silencio.fdf"
 	};
 int			arg_i = 0;
 
@@ -182,7 +182,7 @@ static char	main_menu()
 	printf
 	(
 		"\nExecute:\n"
-		"\n\033[93m 0\x1b[0m next map"
+		"\n\033[35m 0\x1b[0m next map"
 		"\n\033[93m 1\x1b[0m ./fdf"
 		"\n\033[93m 2\x1b[0m valgrind ./fdf"
 		"\n\033[32m 3\x1b[0m make re"

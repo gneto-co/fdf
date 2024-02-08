@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/08 12:23:40 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:30:37 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,16 @@ void		free_matrix(int **matrix, int matrix_len);
 // -window
 # define WINDOW_WIDTH 1900
 # define WINDOW_HEIGHT 900
-# define W_WIDTH_CENTER (WINDOW_WIDTH / 2)
-# define W_HEIGHT_CENTER (WINDOW_HEIGHT / 2)
+# define W_WIDTH_CENTER 950 // WINDOW_WIDTH / 2
+# define W_HEIGHT_CENTER 450 // WINDOW_HEIGHT / 2
 // -margin
-# define MARGIN_WIDTH (WINDOW_WIDTH * 0.05)
-# define MARGIN_HEIGHT (WINDOW_WIDTH * 0.05)
-// -text area
-// # define TEXT_WIDTH_START (MARGIN_WIDTH)
-// # define TEXT_WIDTH (WINDOW_WIDTH * 0.20)
-// # define TEXT_HEIGHT_START (MARGIN_HEIGHT)
-// # define TEXT_HEIGHT (WINDOW_HEIGHT * 0.80)
+# define MARGIN_WIDTH 95 // WINDOW_WIDTH * 0.05
+# define MARGIN_HEIGHT 45 // WINDOW_WIDTH * 0.05
 // -draw area
-# define DRAW_WIDTH_START (MARGIN_WIDTH)
-# define DRAW_WIDTH (WINDOW_WIDTH * 0.90)
-# define DRAW_HEIGHT_START (MARGIN_HEIGHT)
-# define DRAW_HEIGHT (WINDOW_HEIGHT * 0.80)
+# define DRAW_WIDTH_START MARGIN_WIDTH
+# define DRAW_WIDTH 1710 // (WINDOW_WIDTH * 0.90)
+# define DRAW_HEIGHT_START MARGIN_HEIGHT
+# define DRAW_HEIGHT 720 // (WINDOW_HEIGHT * 0.80)
 // -figure
 # define LINE_WIDTH 20
 # define LINE_HEIGHT 20
@@ -151,10 +146,32 @@ typedef struct s_point
 	int		z;
 }			t_point;
 
+typedef struct s_iso_config
+{
+	int		height;
+	int		z_scale;
+	float	angle;
+	float	vertical_angle;
+	float	radian_vertical_angle;
+	float	radian_angle;
+}			t_iso_config;
+
+typedef struct s_rl
+{
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
+	int		z_increment;
+}			t_rl;
+
 // pw
 int			pw(t_map map);
 int			render(t_data *data);
 void		draw_map(t_data *data);
+t_point		iso(t_data *data, t_point p);
 
 // pw_operations
 void		setup_image(t_data *data);
@@ -169,9 +186,10 @@ int			handle_close(t_data *data);
 
 // render funtions
 void		render_background(t_img *img, int color);
-void		render_rect(t_img *img, t_rect rect);
 void		render_p_line(t_data *data, t_line line);
 void		render_line(t_data *data, t_line line);
+int			calc_up_color(t_data *data, int z);
+int			calc_down_color(t_data *data, int z);
 
 // mlx_utils
 void		img_pix_put(t_img *img, int x, int y, int color);
