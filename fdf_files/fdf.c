@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:08:11 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/08 12:04:27 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:26:17 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	fdf(char *file_name)
 {
-	int	y_max;
-	t_map map;
+	int		y_max;
+	t_map	map;
 
-	// just getting the file coordinates to a matrix
+	// getting the file coordinates to a matrix
 	y_max = ft_filelen(file_name);
 	map = get_file_coordinates(file_name, y_max);
-
-	ft_printf(
-		"\nFdf controls:\n"
+	// printing controls
+	ft_printf("\nFdf controls:\n"
 		"\n(A) \t\t: move image left"
 		"\n(D) \t\t: move image right"
 		"\n(W) \t\t: move image up"
@@ -44,11 +43,8 @@ void	fdf(char *file_name)
 		"\n(C) \t\t: increase color"
 		"\n(V) \t\t: decrease color"
 		"\n(X) \t\t: reset figure"
-		"\n"
-		);
-
+		"\n");
 	// starting the window loop
 	pw(map);
-	
 	free_matrix((map.matrix), y_max);
 }
