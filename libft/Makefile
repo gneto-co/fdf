@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/01/19 16:02:07 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/22 22:27:00 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ MATH_FUNCTIONS = $(addprefix math_functions/, $(addsuffix .c, \
 ft_numlen \
 ft_numlen_base \
 op_power_of \
+op_not_zero \
 ))
 
 MEMORY_FUNCTIONS = $(addprefix memory_functions/, $(addsuffix .c, \

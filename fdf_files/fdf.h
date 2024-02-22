@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/08 20:30:37 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:55:58 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,19 @@ void		free_matrix(int **matrix, int matrix_len);
 
 // window parameters
 // -window
-# define WINDOW_WIDTH 1900
+# define WINDOW_WIDTH 1500
 # define WINDOW_HEIGHT 900
-# define W_WIDTH_CENTER 950 // WINDOW_WIDTH / 2
+# define W_WIDTH_CENTER 750 // WINDOW_WIDTH / 2
 # define W_HEIGHT_CENTER 450 // WINDOW_HEIGHT / 2
 // -margin
 # define MARGIN_WIDTH 95 // WINDOW_WIDTH * 0.05
 # define MARGIN_HEIGHT 45 // WINDOW_WIDTH * 0.05
 // -draw area
 # define DRAW_WIDTH_START MARGIN_WIDTH
-# define DRAW_WIDTH 1710 // (WINDOW_WIDTH * 0.90)
+# define DRAW_WIDTH 1350 // (WINDOW_WIDTH * 0.90)
 # define DRAW_HEIGHT_START MARGIN_HEIGHT
 # define DRAW_HEIGHT 720 // (WINDOW_HEIGHT * 0.80)
-// -figure
+// -figuredf/blob/main/fdf_files/fdf.h
 # define LINE_WIDTH 20
 # define LINE_HEIGHT 20
 # define EXTRA_WIDTH 0

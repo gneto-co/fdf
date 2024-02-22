@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:30:24 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/01/19 15:38:19 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/22 22:27:18 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					op_square(int number);
 int					op_power_of(int base, int exponent);
 int					ft_numlen(int long nbr);
 int					ft_numlen_base(int nbr, int base);
+int					op_not_zero(int nb);
 
 // memory_funtions
 void				*ft_memset(void *s, int c, size_t n);
