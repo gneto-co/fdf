@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/22 21:55:58 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:35:19 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		should_close;
 	int		cur_img;
 	t_img	img;
 	t_map	map;
@@ -165,6 +166,10 @@ typedef struct s_rl
 	int		err;
 	int		e2;
 	int		z_increment;
+	int		color_start;
+	int		color_end;
+	int		color_delta;
+	int		color_current;
 }			t_rl;
 
 // pw
@@ -181,7 +186,6 @@ void		free_mlx_stuff(t_data *data);
 
 // handle_functions
 int			handle_keypress(int keysym, t_data *data);
-int			handle_keyrelease(int keysym, void *data);
 int			handle_close(t_data *data);
 
 // render funtions

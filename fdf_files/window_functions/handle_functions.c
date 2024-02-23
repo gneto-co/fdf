@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:06:48 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/08 20:09:54 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:03:04 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,5 @@ int	handle_keypress(int keysym, t_data *data)
 	}
 	handle_keypress2(keysym, data);
 	handle_keypress3(keysym, data);
-	return (0);
-}
-
-int	handle_keyrelease(int keysym, void *data)
-{
-	return (0);
-}
-
-int	handle_close(t_data *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	data->win_ptr = NULL;
-	ft_printf("Window closed\n");
 	return (0);
 }

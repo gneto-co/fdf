@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:09:59 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/07 11:39:53 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:03:58 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 // thats what will repeat every time in mlx cycle
 int	render(t_data *data)
 {
-	if (data->win_ptr == NULL)
+	if (data->should_close)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
+	}
+	if (!data->win_ptr)
 		return (1);
 	render_background(&data->img, BLACK_PIXEL);
 	draw_map(data);
