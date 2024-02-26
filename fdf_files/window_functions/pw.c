@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:09:59 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/02/23 11:03:58 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:48:03 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ int	pw(t_map map)
 	setup_image(&data);
 	setup_hooks(&data);
 	free_mlx_stuff(&data);
+	return (0);
 }
