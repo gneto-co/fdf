@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:01:08 by gabriel           #+#    #+#             */
-/*   Updated: 2024/02/23 11:35:19 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:10:21 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,31 @@ typedef struct s_rl
 	int		color_current;
 }			t_rl;
 
+typedef struct s_colors
+{
+	int		red1;
+	int		green1;
+	int		blue1;
+	int		red2;
+	int		green2;
+	int		blue2;
+	int		interpolated_red;
+	int		interpolated_green;
+	int		interpolated_blue;
+}			t_colors;
+
+typedef struct s_color_management
+{
+	int		color;
+	int		delta_z;
+	int		total_steps;
+	int		step;
+	int		interpolated_color;
+	float	interpolation_factor;
+	int		initial_color;
+	int		final_color;
+}			t_color_management;
+
 // pw
 int			pw(t_map map);
 int			render(t_data *data);
@@ -194,6 +219,7 @@ void		render_p_line(t_data *data, t_line line);
 void		render_line(t_data *data, t_line line);
 int			calc_up_color(t_data *data, int z);
 int			calc_down_color(t_data *data, int z);
+int			max(int a, int b);
 
 // mlx_utils
 void		img_pix_put(t_img *img, int x, int y, int color);

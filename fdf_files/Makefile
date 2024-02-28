@@ -6,7 +6,7 @@
 #    By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 10:51:25 by gneto-co          #+#    #+#              #
-#    Updated: 2024/02/08 19:56:18 by gneto-co         ###   ########.fr        #
+#    Updated: 2024/02/28 11:07:34 by gneto-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ $(addprefix window_functions/, \
 pw \
 render_functions \
 render_lines \
+render_p_lines \
 isometric_calculations \
 mlx_utils \
 handle_functions \
